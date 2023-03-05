@@ -1,10 +1,10 @@
-import Form from "./components/Form";
 import "./App.css";
+import Onglets from "./components/Onglets";
 
 function App() {
   return (
     <div className="App">
-      <Form />
+      <Onglets />
     </div>
   );
 }
