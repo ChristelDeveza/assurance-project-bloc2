@@ -1,12 +1,23 @@
 const AbstractManager = require("./AbstractManager");
 
 class ItemManager extends AbstractManager {
-  static table = "item";
+  static table = "declaration";
 
-  insert(item) {
+  // insert(item) {
+  //   return this.connection.query(
+  //     `insert into ${ItemManager.table} (title) values (?)`,
+  //     [item.title]
+  //   );
+  // }
+
+  insert(declaration) {
     return this.connection.query(
-      `insert into ${ItemManager.table} (title) values (?)`,
-      [item.title]
+      `insert into ${ItemManager.table} (date_sinister, description_sinister, photo) values (?, ?, ?)`,
+      [
+        declaration.date_sinister,
+        declaration.description_sinister,
+        declaration.photo,
+      ]
     );
   }
 
