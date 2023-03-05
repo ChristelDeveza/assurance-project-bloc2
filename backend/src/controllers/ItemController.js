@@ -1,6 +1,28 @@
 const models = require("../models");
 
 class ItemController {
+  static declaration = (req, res) => {
+    const { date, description } = req.body;
+    const photoPath = req.file.path;
+    // TODO validations (length, format...)
+
+    const item = {
+      date_sinister: date,
+      description_sinister: description,
+      photo: photoPath,
+    };
+
+    models.declaration
+      .insert(item)
+      .then(([result]) => {
+        res.status(201).send({ ...item, id: result.insertId });
+      })
+      .catch((err) => {
+        console.error(err);
+        res.sendStatus(500);
+      });
+  };
+
   static browse = (req, res) => {
     models.item
       .findAll()
