@@ -75,20 +75,8 @@ class ItemController {
       });
   };
 
-  static browse = (req, res) => {
-    models.item
-      .findAll()
-      .then(([rows]) => {
-        res.send(rows);
-      })
-      .catch((err) => {
-        console.error(err);
-        res.sendStatus(500);
-      });
-  };
-
   static read = (req, res) => {
-    models.item
+    models.user
       .find(req.params.id)
       .then(([rows]) => {
         if (rows[0] == null) {
@@ -102,6 +90,21 @@ class ItemController {
         res.sendStatus(500);
       });
   };
+
+  // // Middleware - vérify token
+  // static authorization = (req, res, next) => {
+  //   const token = req.cookies.access_token;
+  //   if (!token) {
+  //     return res.sendStatus(401);
+  //   }
+  //   try {
+  //     const data = jwt.verify(token, process.env.JWT_AUTH_SECRET);
+  //     req.userId = data.id;
+  //     return next();
+  //   } catch {
+  //     return res.sendStatus(401);
+  //   }
+  // };
 
   static edit = (req, res) => {
     const item = req.body;
