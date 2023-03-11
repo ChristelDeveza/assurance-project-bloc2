@@ -6,3 +6,88 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+.tabs {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f5f5f5;
+  padding: 10px;
+}
+
+.tab {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #999;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+}
+
+.tab.active {
+  border-right: none;
+  background-color: #007bff;
+  color: #fff;
+}
+
+.tab-panel {
+  display: none;
+  padding: 20px;
+}
+
+.tab-panel.active {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  /* Conteneur pour les onglets */
+  .tabs {
+    display: flex;
+    flex-direction: column;
+    background-color: #f5f5f5;
+    padding: 10px;
+  }
+
+  /* Onglets */
+  .tab {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #999;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    border-bottom: 1px solid #ccc;
+    padding: 5px;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden; /* masque les textes trop longs */
+    text-overflow: ellipsis; /* ajoute des points de suspension si le texte est trop long */
+  }
+
+  /* Onglet actif */
+  .tab.active {
+    background-color: #007bff;
+    color: #fff;
+  }
+
+  /* Contenu de l'onglet */
+  .tab-panel {
+    display: none;
+    padding: 20px;
+  }
+
+  /* Contenu de l'onglet actif */
+  .tab-panel.active {
+    display: block;
+  }
+}
