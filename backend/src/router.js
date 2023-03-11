@@ -37,6 +37,8 @@ router.post(
   upload.single("photo"),
   ItemController.declaration
 );
+
+router.post("/login", ItemController.login);
 router.get("/items", ItemController.browse);
 router.get("/items/:id", ItemController.read);
 router.put("/items/:id", ItemController.edit);
