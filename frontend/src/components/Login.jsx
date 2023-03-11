@@ -46,7 +46,7 @@ function Login() {
   return (
     <div className="login">
       <section>
-        <h1 className="title-login">SE CONNECTER</h1>
+        <h1 className="title-login">ME CONNECTER</h1>
         <form onSubmit={handleSubmit} className="login-form">
           <div className="login-box">
             <label htmlFor="email">E-mail :</label>
@@ -72,7 +72,7 @@ function Login() {
           </div>
 
           <button className="login-button" type="button" onClick={handleSubmit}>
-            SE CONNECTER
+            CONNEXION
           </button>
         </form>
       </section>
