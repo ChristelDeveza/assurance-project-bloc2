@@ -3,7 +3,7 @@ const multer = require("multer");
 // Définir le stockage des fichiers pour Multer
 const storage = multer.diskStorage({
   destination(req, file, cb) {
-    cb(null, "./src/images");
+    cb(null, "./public/assets/images");
   },
   filename(req, file, cb) {
     cb(null, `${file.fieldname}-${Date.now()}-${file.originalname}`);
