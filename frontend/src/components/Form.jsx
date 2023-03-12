@@ -34,11 +34,14 @@ function Form() {
 
   return (
     <div className="form">
-      <h1>Formulaire de déclaration de sinistre</h1>
-      <form onSubmit={handleSubmit}>
+      <h1 className="header-decl">Formulaire de déclaration de sinistre</h1>
+      <form className="decl-form" onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="date">Date :</label>
+          <label className="decl-label" htmlFor="date">
+            Date :
+          </label>
           <input
+            className="decl-input"
             type="date"
             id="date"
             name="date"
@@ -46,9 +49,12 @@ function Form() {
             onChange={handleInputChange}
           />
         </div>
-        <div>
-          <label htmlFor="description">Description :</label>
+        <div className="div-decl">
+          <label className="decl-label" htmlFor="description">
+            Description :
+          </label>
           <textarea
+            className="decl-descr"
             id="description"
             name="description"
             value={formData.description}
