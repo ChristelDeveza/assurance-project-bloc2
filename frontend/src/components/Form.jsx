@@ -33,7 +33,7 @@ function Form() {
   };
 
   return (
-    <div className="form">
+    <div className="decl-div-form">
       <h1 className="header-decl">Formulaire de déclaration de sinistre</h1>
       <form className="decl-form" onSubmit={handleSubmit}>
         <div>
