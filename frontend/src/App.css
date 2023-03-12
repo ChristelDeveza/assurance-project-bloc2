@@ -175,17 +175,16 @@ label {
   margin-bottom: 40px;
 }
 
-
 .decl-form {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items:center;
+  align-items: center;
   background-color: #ecf0f3;
   padding: 40px;
   border-radius: 8px;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
-  gap:2rem;
+  gap: 2rem;
   width: 100%;
 }
 
@@ -195,7 +194,6 @@ label {
   color: #2d3e50;
   font-size: 16px;
   text-align: center;
-  
 }
 
 .decl-input {
@@ -206,7 +204,7 @@ label {
   margin-top: 5px;
   font-size: 16px;
   width: 100%;
-} 
+}
 
 .decl-descr {
   padding: 1rem;
@@ -214,8 +212,8 @@ label {
   border: none;
   background-color: #f7f9fb;
   font-size: 16px;
-  width: 100%;
-  height: 200px;
+  width: 50rem;
+  height: 300px;
 }
 
 button[type="submit"] {
@@ -227,7 +225,6 @@ button[type="submit"] {
   margin-top: 20px;
   font-size: 18px;
   padding: 12px 24px;
-  
 }
 
 button[type="submit"]:hover {
@@ -312,11 +309,11 @@ button[type="submit"]:hover {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items:center;
+    align-items: center;
     width: 150%;
   }
 
   .decl-descr {
-    margin-left: -0.8rem;
+    width: 20rem;
   }
 }
