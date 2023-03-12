@@ -2,6 +2,7 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useState } from "react";
 import Form from "./Form";
+import UserDatas from "./UserDatas";
 
 function Onglets() {
   const [activeTab, setActiveTab] = useState(0);
@@ -34,7 +35,7 @@ function Onglets() {
       </div>
       <div className="tab-content">
         <div className={`tab-panel ${activeTab === 0 && "active"}`}>
-          <p>Content of Tab 1</p>
+          <UserDatas />
         </div>
         <div className={`tab-panel ${activeTab === 1 && "active"}`}>
           <p>
@@ -42,7 +43,7 @@ function Onglets() {
           </p>
         </div>
         <div className={`tab-panel ${activeTab === 2 && "active"}`}>
-          <p>Content of Tab 3</p>
+          <p>Mes contrats d'assurance</p>
         </div>
       </div>
     </div>
