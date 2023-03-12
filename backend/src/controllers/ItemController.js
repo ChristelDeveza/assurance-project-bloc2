@@ -76,8 +76,10 @@ class ItemController {
   };
 
   static read = (req, res) => {
+    const id = req.userId;
+
     models.user
-      .find(req.params.id)
+      .find(id)
       .then(([rows]) => {
         if (rows[0] == null) {
           res.sendStatus(404);
@@ -92,19 +94,19 @@ class ItemController {
   };
 
   // // Middleware - vérify token
-  // static authorization = (req, res, next) => {
-  //   const token = req.cookies.access_token;
-  //   if (!token) {
-  //     return res.sendStatus(401);
-  //   }
-  //   try {
-  //     const data = jwt.verify(token, process.env.JWT_AUTH_SECRET);
-  //     req.userId = data.id;
-  //     return next();
-  //   } catch {
-  //     return res.sendStatus(401);
-  //   }
-  // };
+  static authorization = (req, res, next) => {
+    const token = req.cookies.access_token;
+    if (!token) {
+      return res.sendStatus(401);
+    }
+    try {
+      const data = jwt.verify(token, process.env.JWT_AUTH_SECRET);
+      req.userId = data.id;
+      return next();
+    } catch {
+      return res.sendStatus(401);
+    }
+  };
 
   static edit = (req, res) => {
     const item = req.body;
