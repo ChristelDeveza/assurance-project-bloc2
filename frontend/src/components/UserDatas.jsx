@@ -32,53 +32,60 @@ function UserDatas() {
 
   return (
     <div>
-      <form onSubmit={updateUser}>
-        <label>
+      <form className="userForm" onSubmit={updateUser}>
+        <label className="label-size">
           Nom
           <input
+            className="imput-size"
             type="text"
             value={lastname}
             onChange={(event) => setLastname(event.target.value)}
           />
         </label>
         <br />
-        <label>
+        <label className="label-size">
           Prénom:
           <input
+            className="imput-size"
             type="text"
             value={firstname}
             onChange={(event) => setFirstname(event.target.value)}
           />
         </label>
         <br />
-        <label>
+        <label className="label-size">
           Email
           <input
+            className="imput-size"
             type="email"
             value={email}
             onChange={(event) => setEmail(event.target.value)}
           />
         </label>
         <br />
-        <label>
+        <label className="label-size">
           Adresse
           <input
+            className="imput-size"
             type="text"
             value={address}
             onChange={(event) => setAddress(event.target.value)}
           />
         </label>
         <br />
-        <label>
+        <label className="label-size">
           Téléphone
           <input
+            className="imput-size"
             type="tel"
             value={phone}
             onChange={(event) => setPhone(event.target.value)}
           />
         </label>
         <br />
-        <button type="submit">Modifier</button>
+        <button className="btn-userdatas" type="submit">
+          Modifier
+        </button>
       </form>
     </div>
   );
