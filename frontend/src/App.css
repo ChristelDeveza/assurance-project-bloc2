@@ -39,6 +39,7 @@ body {
 .tab-panel {
   display: none;
   padding: 20px;
+  margin: 5rem;
 }
 
 .tab-panel.active {
@@ -52,8 +53,8 @@ body {
   align-items: center;
   height: 100vh;
   background-image: url("./assets/background.jpg");
-  background-size: cover; 
-  background-position: center center; 
+  background-size: cover;
+  background-position: center center;
 }
 
 section {
@@ -112,6 +113,54 @@ label {
   background-color: #2980b9;
 }
 
+/* User data form*/
+
+.userFormform {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.label-size {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+  color: #2d3e50;
+  font-size: 16px;
+}
+
+.imput-size {
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  background-color: #ecf0f3;
+  margin-top: 5px;
+  font-size: 16px;
+  width: 50rem;
+}
+
+.btn-userdatas {
+  background-color: #3498db;
+  color: #fff;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+  font-size: 18px;
+  padding: 12px 24px;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.btn-userdatas:hover {
+  background-color: #2980b9;
+}
+
 @media (max-width: 768px) {
   /* Conteneur pour les onglets */
   .tabs {
@@ -137,7 +186,7 @@ label {
     padding: 5px;
     text-align: center;
     white-space: nowrap;
-    overflow: hidden; 
+    overflow: hidden;
     text-overflow: ellipsis;
   }
 
