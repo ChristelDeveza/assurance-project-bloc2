@@ -298,4 +298,10 @@ button[type="submit"]:hover {
     padding: 12px 24px;
     margin-top: 10px;
   }
+
+  /* User data form */
+
+  .imput-size {
+    width: 130%;
+  }
 }
