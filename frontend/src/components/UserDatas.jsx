@@ -31,7 +31,7 @@ function UserDatas() {
   }, []);
 
   return (
-    <div>
+    <div className="userForm-div">
       <form className="userForm" onSubmit={updateUser}>
         <label className="label-size">
           Nom

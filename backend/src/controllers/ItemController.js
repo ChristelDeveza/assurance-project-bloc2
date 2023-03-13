@@ -6,12 +6,14 @@ class ItemController {
   static declaration = (req, res) => {
     const { date, description } = req.body;
     const photoPath = req.file.path;
-    // TODO validations (length, format...)
+    // Permet de récupérer l'ID utilisateur à partir du cookie / un token JWT
+    const { userId } = req;
 
     const item = {
       date_sinister: date,
       description_sinister: description,
       photo: photoPath,
+      userId,
     };
 
     models.declaration

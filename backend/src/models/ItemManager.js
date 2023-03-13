@@ -12,11 +12,12 @@ class ItemManager extends AbstractManager {
 
   insert(declaration) {
     return this.connection.query(
-      `insert into ${ItemManager.table} (date_sinister, description_sinister, photo) values (?, ?, ?)`,
+      `insert into ${ItemManager.table} (date_sinister, description_sinister, photo, userId) values (?, ?, ?, ?)`,
       [
         declaration.date_sinister,
         declaration.description_sinister,
         declaration.photo,
+        declaration.userId,
       ]
     );
   }
