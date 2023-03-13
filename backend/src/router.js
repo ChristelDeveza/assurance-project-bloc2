@@ -10,6 +10,7 @@ const { authorization } = require("./controllers/ItemController");
 router.post(
   "/upload_images",
   upload.single("photo"),
+  authorization,
   ItemController.declaration
 );
 router.post("/login", ItemController.login);

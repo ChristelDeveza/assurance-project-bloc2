@@ -22,7 +22,9 @@ function Form() {
     itemData.append("description", formData.description);
     itemData.append("photo", formData.photo);
     axios
-      .post("http://localhost:5000/upload_images", itemData)
+      .post("http://localhost:5000/upload_images", itemData, {
+        withCredentials: true,
+      })
       .then((response) => {
         // console.log(response.data);
         setFormData(response.data);
