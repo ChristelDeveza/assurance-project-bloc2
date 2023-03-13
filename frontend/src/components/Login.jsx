@@ -40,7 +40,7 @@ function Login() {
         });
     } else {
       // If fields are empty
-      alert("remplir les champs");
+      // alert("remplir les champs");
     }
   }
   return (
