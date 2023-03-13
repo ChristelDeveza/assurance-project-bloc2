@@ -7,6 +7,13 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.tabs-container {
+  background-image: url("./assets/background.jpg");
+  background-size: cover;
+  background-position: center center;
+  height: 100vh;
+}
+
 .tabs {
   display: flex;
   flex-direction: row;
@@ -114,7 +121,19 @@ label {
 }
 
 /* User data form*/
-.userFormform {
+
+.userForm-div {
+  background-color: #9eacc7;
+  padding: 2rem;
+  background: rgba(14, 18, 17, 0.32);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10.1px);
+  -webkit-backdrop-filter: blur(10.1px);
+  border: 1px solid rgba(195, 209, 208, 0.4);
+}
+
+.userForm {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -180,12 +199,19 @@ label {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #ecf0f3;
+  /* background-color: #9eacc7; */
   padding: 40px;
   border-radius: 8px;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
   gap: 2rem;
   width: 100%;
+  /* From https://css.glass */
+  background: rgba(18, 21, 20, 0.32);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10.1px);
+  -webkit-backdrop-filter: blur(10.1px);
+  border: 1px solid rgba(174, 208, 204, 0.4);
 }
 
 .decl-label {
