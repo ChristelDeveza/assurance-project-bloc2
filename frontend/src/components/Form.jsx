@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import Swal from "sweetalert2";
 import UploadImage from "./UploadImage";
 import Logout from "./Logout";
 
@@ -22,17 +23,34 @@ function Form() {
     itemData.append("date", formData.date);
     itemData.append("description", formData.description);
     itemData.append("photo", formData.photo);
-    axios
-      .post("http://localhost:5000/upload_images", itemData, {
-        withCredentials: true,
-      })
-      .then((response) => {
-        // console.log(response.data);
-        setFormData(response.data);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+    Swal.fire({
+      title: "Êtes-vous sûr de vouloir envoyer la demande ?",
+      text: "Cette action est irréversible, vous ne pourrez plus modifier votre demande !",
+      icon: "warning",
+      position: "center",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      cancelButtonText: "Annuler!",
+      confirmButtonText: "Oui, Soumettre !",
+    }).then(() => {
+      axios
+        .post("http://localhost:5000/upload_images", itemData, {
+          withCredentials: true,
+        })
+        .then((response) => {
+          // console.log(response.data);
+          setFormData(response.data);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+      Swal.fire(
+        "Votre déclaration a été envoyé avec sucès !",
+        "Pour suivre l'avancement de votre demande, rendez-vous dans votre espace personnel",
+        "success"
+      ).then(() => window.location.reload());
+    });
   };
 
   return (
