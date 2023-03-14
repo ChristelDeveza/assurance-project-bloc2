@@ -77,6 +77,7 @@ class ItemController {
       });
   };
 
+  // get user details
   static read = (req, res) => {
     const id = req.userId;
 
@@ -87,6 +88,25 @@ class ItemController {
           res.sendStatus(404);
         } else {
           res.send(rows[0]);
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+        res.sendStatus(500);
+      });
+  };
+
+  // get declaration details
+  static readDecl = (req, res) => {
+    const id = req.userId;
+
+    models.declaration
+      .findDecl(id)
+      .then(([rows]) => {
+        if (rows.length == null) {
+          res.sendStatus(404);
+        } else {
+          res.send(rows);
         }
       })
       .catch((err) => {

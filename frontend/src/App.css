@@ -272,6 +272,38 @@ button[type="submit"]:hover {
   background-color: #930505;
 }
 
+/*Table*/
+table {
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 800px;
+  margin: 20px auto;
+  background-color: #f5f5f5;
+}
+
+thead {
+  background-color: #2f80ed;
+  color: #fff;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+th {
+  font-weight: bold;
+}
+
+tr:nth-child(even) {
+  background-color: #e8f7fc;
+}
+
+tr:hover {
+  background-color: #d4eaf1;
+}
+
 @media (max-width: 768px) {
   /* Conteneur pour les onglets */
   .tabs {
