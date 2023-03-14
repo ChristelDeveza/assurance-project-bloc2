@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import axios from "axios";
+import Swal from "sweetalert2";
 import { useNavigate } from "react-router";
 import { UserContext } from "../context/UserContext";
 
@@ -18,7 +19,11 @@ function Logout() {
         localStorage.setItem("user", null);
       })
       .then(() => {
-        // console.log("hey");
+        Swal.fire({
+          icon: "success",
+          title: "Confirmation",
+          text: "Déconnexion réussie.",
+        });
       })
       .catch((err) => {
         if (err.response.status === 401) {
