@@ -22,6 +22,13 @@ class ItemManager extends AbstractManager {
     );
   }
 
+  findDecl(id) {
+    return this.connection.query(
+      `select * from  ${this.table} where userId = ?`,
+      [id]
+    );
+  }
+
   update(item) {
     return this.connection.query(
       `update ${ItemManager.table} set title = ? where id = ?`,
