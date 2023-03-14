@@ -2,7 +2,6 @@
 /* eslint-disable no-shadow */
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import DeclCard from "./DeclCard";
 
 function GetDecl() {
   const [declarationList, setDeclarationList] = useState([]);
@@ -32,15 +31,17 @@ function GetDecl() {
               <th>Description</th>
             </tr>
           </thead>
-          {declarationList.map((data) => (
-            <tbody>
-              <tr>
+          <tbody>
+            {declarationList.map((data) => (
+              <tr key={data.id}>
+                <td>{data.id}</td>
                 <td>
-                  <DeclCard key={data.id} {...data} />
+                  {new Date(data.date_sinister).toLocaleDateString("fr-FR")}
                 </td>
+                <td>{data.description_sinister}</td>
               </tr>
-            </tbody>
-          ))}
+            ))}
+          </tbody>
         </table>
       </div>
     </div>
