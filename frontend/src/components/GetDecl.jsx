@@ -5,9 +5,6 @@ import axios from "axios";
 
 function GetDecl() {
   const [declarationList, setDeclarationList] = useState([]);
-  // const [numDecl, setNumDecl] = useState("");
-  // const [date, setDate] = useState("");
-  // const [description, setDescription] = useState("");
 
   useEffect(() => {
     axios
