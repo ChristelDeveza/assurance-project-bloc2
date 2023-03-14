@@ -1,6 +1,7 @@
 /* eslint-disable no-shadow */
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import Logout from "./Logout";
 
 function UserDatas() {
   const [lastname, setLastname] = useState("");
@@ -86,6 +87,7 @@ function UserDatas() {
         <button className="btn-userdatas" type="submit">
           Modifier
         </button>
+        <Logout />
       </form>
     </div>
   );

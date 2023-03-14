@@ -257,6 +257,21 @@ button[type="submit"]:hover {
   background-color: #2980b9;
 }
 
+.disconnect-button[type="button"] {
+  background-color: #db3437;
+  color: #fff;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  margin-top: 20px;
+  font-size: 18px;
+  padding: 12px 24px;
+}
+
+.disconnect-button[type="button"]:hover {
+  background-color: #930505;
+}
+
 @media (max-width: 768px) {
   /* Conteneur pour les onglets */
   .tabs {

@@ -110,6 +110,11 @@ class ItemController {
     }
   };
 
+  // User logout
+  static logout = (req, res) => {
+    return res.clearCookie("access_token").sendStatus(200);
+  };
+
   static edit = (req, res) => {
     const item = req.body;
 
