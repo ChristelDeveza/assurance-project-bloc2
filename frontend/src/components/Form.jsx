@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import UploadImage from "./UploadImage";
+import Logout from "./Logout";
 
 function Form() {
   const [formData, setFormData] = useState({
@@ -63,8 +64,15 @@ function Form() {
             onChange={handleInputChange}
           />
         </div>
-        <UploadImage formData={formData} setFormData={setFormData} />
-        <button type="submit">SOUMETTRE MA DECLARATION</button>
+        <div>
+          <UploadImage formData={formData} setFormData={setFormData} />
+        </div>
+        <div>
+          <button type="submit">SOUMETTRE MA DECLARATION</button>
+        </div>
+        <div>
+          <Logout />
+        </div>
       </form>
     </div>
   );

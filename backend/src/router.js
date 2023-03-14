@@ -15,6 +15,8 @@ router.post(
 );
 router.post("/login", ItemController.login);
 router.get("/compteuser", authorization, ItemController.read);
+// Route logout
+router.get("/logout", authorization, ItemController.logout);
 
 // router.get("/items", ItemController.browse);
 // router.put("/items/:id", ItemController.edit);
