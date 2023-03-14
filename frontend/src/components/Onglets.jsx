@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Form from "./Form";
 import UserDatas from "./UserDatas";
+import GetDecl from "./GetDecl";
 
 function Onglets() {
   const [activeTab, setActiveTab] = useState(0);
@@ -44,6 +45,7 @@ function Onglets() {
         </div>
         <div className={`tab-panel ${activeTab === 2 && "active"}`}>
           <p>Mes contrats d'assurance</p>
+          <GetDecl />
         </div>
       </div>
     </div>
