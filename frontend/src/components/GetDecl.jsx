@@ -17,8 +17,8 @@ function GetDecl() {
       .catch((error) => console.error(error));
   }, []);
   return (
-    <div>
-      <h3>Mes déclarations de sinistre en cours</h3>
+    <div className="div-table">
+      <h3 className="title">Mes déclarations de sinistre en cours</h3>
       <div>
         <table>
           <thead>

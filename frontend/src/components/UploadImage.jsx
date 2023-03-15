@@ -9,7 +9,9 @@ function UploadImage(props) {
       <h5>Joindre une photo du sinistre</h5>
 
       <div>
-        <label htmlFor="photo">Photo :</label>
+        <label className="decl-label" htmlFor="photo">
+          Photo :
+        </label>
         <input
           type="file"
           id="photo"
