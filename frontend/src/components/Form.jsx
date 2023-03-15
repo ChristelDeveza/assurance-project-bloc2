@@ -47,7 +47,7 @@ function Form() {
         });
       Swal.fire(
         "Votre déclaration a été envoyé avec sucès !",
-        "Pour suivre l'avancement de votre demande, rendez-vous dans votre espace personnel",
+        "Pour suivre l'avancement de votre demande, rendez-vous dans votre espace personnel, onglet Mes contrats",
         "success"
       ).then(() => window.location.reload());
     });

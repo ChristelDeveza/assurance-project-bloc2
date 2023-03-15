@@ -10,8 +10,9 @@ body {
 .tabs-container {
   background-image: url("./assets/background.jpg");
   background-size: cover;
-  background-position: center center;
-  height: 100vh;
+  background-position: center;
+  width: 100%;
+  height: 80rem;
 }
 
 .tabs {
@@ -205,7 +206,6 @@ label {
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
   gap: 2rem;
   width: 100%;
-  /* From https://css.glass */
   background: rgba(18, 21, 20, 0.32);
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -237,7 +237,7 @@ label {
   border-radius: 8px;
   border: none;
   background-color: #f7f9fb;
-  font-size: 16px;
+  font-size: 30px;
   width: 50rem;
   height: 300px;
 }
@@ -273,10 +273,14 @@ button[type="submit"]:hover {
 }
 
 /*Table*/
+.title {
+  text-align: center;
+}
+
 table {
   border-collapse: collapse;
   width: 100%;
-  max-width: 800px;
+  max-width: 768px;
   margin: 20px auto;
   background-color: #f5f5f5;
 }
@@ -286,7 +290,8 @@ thead {
   color: #fff;
 }
 
-th, td {
+th,
+td {
   padding: 10px;
   text-align: left;
   border: 1px solid #ddd;
@@ -306,6 +311,7 @@ tr:hover {
 
 @media (max-width: 768px) {
   /* Conteneur pour les onglets */
+
   .tabs {
     display: flex;
     flex-direction: column;
@@ -388,5 +394,37 @@ tr:hover {
 
   .decl-descr {
     width: 20rem;
+  }
+
+  .decl-label {
+    font-size: x-large;
+    font-weight: bolder;
+    color:black;
+  }
+
+  /*table*/
+
+  .div-table {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Afficher l'en-tête du tableau en format mobile */
+  thead {
+    display: table-header-group;
+  }
+
+  /* Masquer le texte "Numéro", "Date" et "Description" en format mobile */
+  td:before {
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  /* Ajouter une marge supérieure au tableau en format mobile */
+  table {
+    margin-top: 40px;
   }
 }

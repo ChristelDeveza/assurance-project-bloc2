@@ -44,7 +44,8 @@ function Onglets() {
           </p>
         </div>
         <div className={`tab-panel ${activeTab === 2 && "active"}`}>
-          <p>Mes contrats d'assurance</p>
+          <h3 className="title">Mes contrats d'assurance</h3>
+          <p>* Contrat N°123654 du 14/03/2023</p>
           <GetDecl />
         </div>
       </div>
