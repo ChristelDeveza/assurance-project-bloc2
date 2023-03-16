@@ -238,7 +238,7 @@ label {
   border: none;
   background-color: #f7f9fb;
   font-size: 30px;
-  width: 50rem;
+  width: 40rem;
   height: 300px;
 }
 
@@ -382,8 +382,15 @@ tr:hover {
   .imput-size {
     width: 140%;
   }
+  .userForm-div {
+    padding-left: 50px;
+    padding-right: 50px;
+    margin-left: -2rem;
+    margin-right: -2rem;
+  }
 
   /*Declaration form*/
+
   .decl-form {
     display: flex;
     flex-direction: column;
@@ -393,13 +400,13 @@ tr:hover {
   }
 
   .decl-descr {
-    width: 20rem;
+    width: 15.6rem;
   }
 
   .decl-label {
     font-size: x-large;
     font-weight: bolder;
-    color:black;
+    color: black;
   }
 
   /*table*/
@@ -409,22 +416,19 @@ tr:hover {
     flex-direction: column;
     align-items: center;
   }
+}
 
-  /* Afficher l'en-tête du tableau en format mobile */
-  thead {
-    display: table-header-group;
+@media only screen and (max-width: 350px) {
+  .decl-descr {
+    width: 12rem;
   }
 
-  /* Masquer le texte "Numéro", "Date" et "Description" en format mobile */
-  td:before {
-    content: attr(data-label);
-    float: left;
-    font-weight: bold;
-    text-transform: uppercase;
-  }
-
-  /* Ajouter une marge supérieure au tableau en format mobile */
   table {
-    margin-top: 40px;
+    width: 20%;
+    max-width: 350px;
+  }
+
+  .width-table {
+    width: 300px;
   }
 }
