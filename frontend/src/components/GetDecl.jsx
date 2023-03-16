@@ -19,7 +19,7 @@ function GetDecl() {
   return (
     <div className="div-table">
       <h3 className="title">Mes déclarations de sinistre en cours</h3>
-      <div>
+      <div className="width-table">
         <table>
           <thead>
             <tr>
