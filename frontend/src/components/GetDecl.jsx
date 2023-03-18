@@ -8,7 +8,7 @@ function GetDecl() {
 
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/declaration`, {
+      .get(`${import.meta.env.VITE_BACKEND_URL}/getdeclaration`, {
         withCredentials: true,
       })
       .then((response) => {

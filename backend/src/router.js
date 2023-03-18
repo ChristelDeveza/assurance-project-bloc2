@@ -19,7 +19,7 @@ router.post("/login", ItemController.login);
 // Route user details
 router.get("/compteuser", authorization, ItemController.read);
 // Route read declaration
-router.get("/upload_images", authorization, ItemController.readDecl);
+router.get("/getdeclaration", authorization, ItemController.readDecl);
 // Route logout
 router.get("/logout", authorization, ItemController.logout);
 
