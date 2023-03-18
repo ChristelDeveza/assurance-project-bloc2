@@ -7,6 +7,14 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.tabs-container {
+  background-image: url("./assets/background.jpg");
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 80rem;
+}
+
 .tabs {
   display: flex;
   flex-direction: row;
@@ -39,14 +47,271 @@ body {
 .tab-panel {
   display: none;
   padding: 20px;
+  margin: 5rem;
 }
 
 .tab-panel.active {
   display: block;
 }
 
+/*Login form */
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url("./assets/background.jpg");
+  background-size: cover;
+  background-position: center center;
+}
+
+section {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+}
+
+.title-login {
+  color: #2d3e50;
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 30px;
+}
+
+.login-box {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+label {
+  color: #2d3e50;
+  margin-bottom: 5px;
+  font-size: 18px;
+}
+
+.login-input {
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  background-color: #ecf0f3;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+.login-input:focus {
+  outline: none;
+  box-shadow: 0 0 5px #3498db;
+}
+
+.login-button {
+  background-color: #3498db;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  margin: 0 auto;
+  display: block;
+}
+
+.login-button:hover {
+  background-color: #2980b9;
+}
+
+/* User data form*/
+
+.userForm-div {
+  background-color: #9eacc7;
+  padding: 2rem;
+  background: rgba(14, 18, 17, 0.32);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10.1px);
+  -webkit-backdrop-filter: blur(10.1px);
+  border: 1px solid rgba(195, 209, 208, 0.4);
+}
+
+.userForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.label-size {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+  color: #2d3e50;
+  font-size: 16px;
+}
+
+.imput-size {
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  background-color: #ecf0f3;
+  margin-top: 5px;
+  font-size: 16px;
+  width: 50rem;
+}
+
+.btn-userdatas {
+  background-color: #3498db;
+  color: #fff;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+  font-size: 18px;
+  padding: 12px 24px;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.btn-userdatas:hover {
+  background-color: #2980b9;
+}
+
+/* Declaration form */
+
+.decl-div-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.header-decl {
+  color: #2d3e50;
+  font-size: 36px;
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.decl-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* background-color: #9eacc7; */
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+  gap: 2rem;
+  width: 100%;
+  background: rgba(18, 21, 20, 0.32);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10.1px);
+  -webkit-backdrop-filter: blur(10.1px);
+  border: 1px solid rgba(174, 208, 204, 0.4);
+}
+
+.decl-label {
+  display: flex;
+  flex-direction: column;
+  color: #2d3e50;
+  font-size: 16px;
+  text-align: center;
+}
+
+.decl-input {
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  background-color: #f7f9fb;
+  margin-top: 5px;
+  font-size: 16px;
+  width: 100%;
+}
+
+.decl-descr {
+  padding: 1rem;
+  border-radius: 8px;
+  border: none;
+  background-color: #f7f9fb;
+  font-size: 30px;
+  width: 40rem;
+  height: 300px;
+}
+
+button[type="submit"] {
+  background-color: #3498db;
+  color: #fff;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  margin-top: 20px;
+  font-size: 18px;
+  padding: 12px 24px;
+}
+
+button[type="submit"]:hover {
+  background-color: #2980b9;
+}
+
+.disconnect-button[type="button"] {
+  background-color: #db3437;
+  color: #fff;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  margin-top: 20px;
+  font-size: 18px;
+  padding: 12px 24px;
+}
+
+.disconnect-button[type="button"]:hover {
+  background-color: #930505;
+}
+
+/*Table*/
+.title {
+  text-align: center;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 768px;
+  margin: 20px auto;
+  background-color: #f5f5f5;
+}
+
+thead {
+  background-color: #2f80ed;
+  color: #fff;
+}
+
+th,
+td {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+th {
+  font-weight: bold;
+}
+
+tr:nth-child(even) {
+  background-color: #e8f7fc;
+}
+
+tr:hover {
+  background-color: #d4eaf1;
+}
+
 @media (max-width: 768px) {
   /* Conteneur pour les onglets */
+
   .tabs {
     display: flex;
     flex-direction: column;
@@ -70,8 +335,8 @@ body {
     padding: 5px;
     text-align: center;
     white-space: nowrap;
-    overflow: hidden; /* masque les textes trop longs */
-    text-overflow: ellipsis; /* ajoute des points de suspension si le texte est trop long */
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   /* Onglet actif */
@@ -89,5 +354,81 @@ body {
   /* Contenu de l'onglet actif */
   .tab-panel.active {
     display: block;
+  }
+
+  /* Login form */
+  section {
+    padding: 20px;
+  }
+  .title-login {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  label {
+    font-size: 16px;
+  }
+  .login-input {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  .login-button {
+    font-size: 18px;
+    padding: 12px 24px;
+    margin-top: 10px;
+  }
+
+  /* User data form */
+
+  .imput-size {
+    width: 140%;
+  }
+  .userForm-div {
+    padding-left: 50px;
+    padding-right: 50px;
+    margin-left: -2rem;
+    margin-right: -2rem;
+  }
+
+  /*Declaration form*/
+
+  .decl-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 150%;
+  }
+
+  .decl-descr {
+    width: 15.6rem;
+  }
+
+  .decl-label {
+    font-size: x-large;
+    font-weight: bolder;
+    color: black;
+  }
+
+  /*table*/
+
+  .div-table {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media only screen and (max-width: 350px) {
+  .decl-descr {
+    width: 12rem;
+  }
+
+  table {
+    width: 20%;
+    max-width: 350px;
+  }
+
+  .width-table {
+    width: 300px;
   }
 }

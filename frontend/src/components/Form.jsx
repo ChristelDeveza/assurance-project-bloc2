@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
+import Swal from "sweetalert2";
 import UploadImage from "./UploadImage";
+import Logout from "./Logout";
 
 function Form() {
   const [formData, setFormData] = useState({
@@ -21,24 +23,45 @@ function Form() {
     itemData.append("date", formData.date);
     itemData.append("description", formData.description);
     itemData.append("photo", formData.photo);
-    axios
-      .post("http://localhost:5000/upload_images", itemData)
-      .then((response) => {
-        // console.log(response.data);
-        setFormData(response.data);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+    Swal.fire({
+      title: "Êtes-vous sûr de vouloir envoyer la demande ?",
+      text: "Cette action est irréversible, vous ne pourrez plus modifier votre demande !",
+      icon: "warning",
+      position: "center",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      cancelButtonText: "Annuler!",
+      confirmButtonText: "Oui, Soumettre !",
+    }).then(() => {
+      axios
+        .post(`${import.meta.env.VITE_BACKEND_URL}/declaration`, itemData, {
+          withCredentials: true,
+        })
+        .then((response) => {
+          setFormData(response.data);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+      Swal.fire(
+        "Votre déclaration a été envoyé avec succès !",
+        "Pour suivre l'avancement de votre demande, rendez-vous dans votre espace personnel, onglet Mes contrats",
+        "success"
+      ).then(() => window.location.reload());
+    });
   };
 
   return (
-    <div className="form">
-      <h1>Formulaire de déclaration de sinistre</h1>
-      <form onSubmit={handleSubmit}>
+    <div className="decl-div-form">
+      <h1 className="header-decl">Formulaire de déclaration de sinistre</h1>
+      <form className="decl-form" onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="date">Date :</label>
+          <label className="decl-label" htmlFor="date">
+            Date :
+          </label>
           <input
+            className="decl-input"
             type="date"
             id="date"
             name="date"
@@ -46,17 +69,27 @@ function Form() {
             onChange={handleInputChange}
           />
         </div>
-        <div>
-          <label htmlFor="description">Description :</label>
+        <div className="div-decl">
+          <label className="decl-label" htmlFor="description">
+            Description :
+          </label>
           <textarea
+            className="decl-descr"
             id="description"
             name="description"
             value={formData.description}
             onChange={handleInputChange}
           />
         </div>
-        <UploadImage formData={formData} setFormData={setFormData} />
-        <button type="submit">SOUMETTRE MA DECLARATION</button>
+        <div>
+          <UploadImage formData={formData} setFormData={setFormData} />
+        </div>
+        <div>
+          <button type="submit">SOUMETTRE MA DECLARATION</button>
+        </div>
+        <div>
+          <Logout />
+        </div>
       </form>
     </div>
   );
