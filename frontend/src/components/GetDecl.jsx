@@ -8,7 +8,7 @@ function GetDecl() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/upload_images`, {
+      .get(`${import.meta.env.VITE_BACKEND_URL}/declaration`, {
         withCredentials: true,
       })
       .then((response) => {

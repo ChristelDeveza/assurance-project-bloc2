@@ -35,18 +35,17 @@ function Form() {
       confirmButtonText: "Oui, Soumettre !",
     }).then(() => {
       axios
-        .post("http://localhost:5000/upload_images", itemData, {
+        .post(`${import.meta.env.VITE_BACKEND_URL}/declaration`, itemData, {
           withCredentials: true,
         })
         .then((response) => {
-          // console.log(response.data);
           setFormData(response.data);
         })
         .catch((error) => {
           console.error(error);
         });
       Swal.fire(
-        "Votre déclaration a été envoyé avec sucès !",
+        "Votre déclaration a été envoyé avec succès !",
         "Pour suivre l'avancement de votre demande, rendez-vous dans votre espace personnel, onglet Mes contrats",
         "success"
       ).then(() => window.location.reload());

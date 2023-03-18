@@ -17,7 +17,7 @@ function UserDatas() {
   // Get user details
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/compteuser`, {
+      .get(`${import.meta.env.VITE_BACKEND_URL}/compteuser`, {
         withCredentials: true,
       })
       .then((response) => {

@@ -9,7 +9,7 @@ const { authorization } = require("./controllers/ItemController");
 
 // Route post declaration
 router.post(
-  "/upload_images",
+  "/declaration",
   upload.single("photo"),
   authorization,
   ItemController.declaration
@@ -22,10 +22,5 @@ router.get("/compteuser", authorization, ItemController.read);
 router.get("/upload_images", authorization, ItemController.readDecl);
 // Route logout
 router.get("/logout", authorization, ItemController.logout);
-
-// router.get("/items", ItemController.browse);
-// router.put("/items/:id", ItemController.edit);
-// router.post("/items", ItemController.add);
-// router.delete("/items/:id", ItemController.delete);
 
 module.exports = router;

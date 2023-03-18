@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import axios from "axios";
+import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
 
@@ -16,7 +17,7 @@ function Login() {
     if (user && password) {
       axios
         .post(
-          `http://localhost:5000/login`,
+          `${import.meta.env.VITE_BACKEND_URL}/login`,
           {
             email: user,
             password,
@@ -26,8 +27,6 @@ function Login() {
           }
         )
         .then((res) => {
-          // console.log(res.data);
-
           setIsOnline(res.data);
           localStorage.setItem("user", JSON.stringify(res.data));
         })
@@ -40,7 +39,11 @@ function Login() {
         });
     } else {
       // If fields are empty
-      // alert("remplir les champs");
+      Swal.fire(
+        "Erreur de connexion",
+        "Pour vous connecter, merci de renseigner votre identifiant et votre mot de passe",
+        "error"
+      );
     }
   }
   return (
