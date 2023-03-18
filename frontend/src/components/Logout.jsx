@@ -10,7 +10,7 @@ function Logout() {
   // Function logout
   function logoutButton() {
     axios
-      .get(`http://localhost:5000/logout`, {
+      .get(`${import.meta.env.VITE_BACKEND_URL}/logout`, {
         withCredentials: true,
       })
       .then(() => {
