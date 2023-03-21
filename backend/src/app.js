@@ -10,6 +10,11 @@ const app = express();
 // cookie-parser
 app.use(cookieParser());
 
+// Acces control allow origin
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  next();
+});
 // use some application-level middlewares
 app.use(
   cors({
