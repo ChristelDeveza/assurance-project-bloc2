@@ -17,7 +17,7 @@ function Login() {
     if (user && password) {
       axios
         .post(
-          `https://lighthearted-stroopwafel-baa966.netlify.app/login`,
+          `https://assurance-project-bloc2-backend.onrender.com/login`,
           {
             email: user,
             password,

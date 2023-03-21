@@ -36,7 +36,7 @@ function Form() {
     }).then(() => {
       axios
         .post(
-          `https://lighthearted-stroopwafel-baa966.netlify.app/declaration`,
+          `https://assurance-project-bloc2-backend.onrender.com/declaration`,
           itemData,
           {
             withCredentials: true,

@@ -10,7 +10,7 @@ function Logout() {
   // Function logout
   function logoutButton() {
     axios
-      .get(`https://lighthearted-stroopwafel-baa966.netlify.app/logout`, {
+      .get(`https://assurance-project-bloc2-backend.onrender.com/logout`, {
         withCredentials: true,
       })
       .then(() => {
