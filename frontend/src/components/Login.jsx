@@ -17,7 +17,7 @@ function Login() {
     if (user && password) {
       axios
         .post(
-          `${import.meta.env.VITE_BACKEND_URL}/login`,
+          `https://lighthearted-stroopwafel-baa966.netlify.app/login`,
           {
             email: user,
             password,

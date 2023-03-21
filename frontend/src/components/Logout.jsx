@@ -3,14 +3,14 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router";
 import { UserContext } from "../context/UserContext";
-
+// ${import.meta.env.VITE_BACKEND_URL}
 function Logout() {
   const { setIsOnline } = useContext(UserContext);
   const navigate = useNavigate();
   // Function logout
   function logoutButton() {
     axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/logout`, {
+      .get(`https://lighthearted-stroopwafel-baa966.netlify.app/logout`, {
         withCredentials: true,
       })
       .then(() => {

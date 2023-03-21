@@ -35,9 +35,13 @@ function Form() {
       confirmButtonText: "Oui, Soumettre !",
     }).then(() => {
       axios
-        .post(`${import.meta.env.VITE_BACKEND_URL}/declaration`, itemData, {
-          withCredentials: true,
-        })
+        .post(
+          `https://lighthearted-stroopwafel-baa966.netlify.app/declaration`,
+          itemData,
+          {
+            withCredentials: true,
+          }
+        )
         .then((response) => {
           setFormData(response.data);
         })
