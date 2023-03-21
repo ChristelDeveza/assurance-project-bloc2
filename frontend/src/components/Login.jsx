@@ -17,7 +17,7 @@ function Login() {
     if (user && password) {
       axios
         .post(
-          `https://assurance-project-bloc2-backend.onrender.com/login`,
+          `${import.meta.env.VITE_BACKEND_URL}/login`,
           {
             email: user,
             password,

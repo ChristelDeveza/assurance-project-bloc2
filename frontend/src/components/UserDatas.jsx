@@ -17,7 +17,7 @@ function UserDatas() {
   // Get user details
   useEffect(() => {
     axios
-      .get(`https://assurance-project-bloc2-backend.onrender.com/compteuser`, {
+      .get(`${import.meta.env.VITE_BACKEND_URL}/compteuser`, {
         withCredentials: true,
       })
       .then((response) => {

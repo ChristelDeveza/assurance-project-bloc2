@@ -35,13 +35,9 @@ function Form() {
       confirmButtonText: "Oui, Soumettre !",
     }).then(() => {
       axios
-        .post(
-          `https://assurance-project-bloc2-backend.onrender.com/declaration`,
-          itemData,
-          {
-            withCredentials: true,
-          }
-        )
+        .post(`${import.meta.env.VITE_BACKEND_URL}/declaration`, itemData, {
+          withCredentials: true,
+        })
         .then((response) => {
           setFormData(response.data);
         })
