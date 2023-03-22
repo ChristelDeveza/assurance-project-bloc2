@@ -61,6 +61,7 @@ class ItemController {
               .send({
                 id,
                 email,
+                token,
               });
           } else {
             res.status(401).send({
