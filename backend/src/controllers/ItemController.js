@@ -58,13 +58,13 @@ class ItemController {
                 secure: true,
                 // process.env.NODE_ENV === "production",
                 domain: "https://assurance-project-bloc2-backend.onrender.com",
-                // path: [
-                //   "/login",
-                //   "/declaration",
-                //   "/compteuser",
-                //   "/getdeclaration",
-                //   "/logout",
-                // ],
+                path: [
+                  "/login",
+                  "/declaration",
+                  "/compteuser",
+                  "/getdeclaration",
+                  "/logout",
+                ],
               })
               .status(200)
               .send({
