@@ -27,8 +27,8 @@ function Login() {
           }
         )
         .then((res) => {
-          setIsOnline(res.data);
-          localStorage.setItem("user", JSON.stringify(res.data));
+          setIsOnline(res.data.token);
+          localStorage.setItem("user", JSON.stringify(res.data.token));
         })
         .then(() => {
           navigate("/moncompte", { replace: true });
