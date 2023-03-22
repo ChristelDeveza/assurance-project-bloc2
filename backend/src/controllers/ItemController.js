@@ -57,12 +57,12 @@ class ItemController {
                 httpOnly: true,
                 secure: process.env.NODE_ENV === "production",
                 domain: "lighthearted-stroopwafel-baa966.netlify.app",
+                path: "/login",
               })
               .status(200)
               .send({
                 id,
                 email,
-                token,
               });
           } else {
             res.status(401).send({
