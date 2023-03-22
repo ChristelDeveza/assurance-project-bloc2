@@ -10,9 +10,6 @@ function GetDecl() {
     axios
       .get(`${import.meta.env.VITE_BACKEND_URL}/getdeclaration`, {
         withCredentials: true,
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("user")}`,
-        },
       })
       .then((response) => {
         setDeclarationList(response.data);
