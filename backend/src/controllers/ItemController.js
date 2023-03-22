@@ -56,8 +56,8 @@ class ItemController {
               .cookie("access_token", token, {
                 httpOnly: true,
                 secure: process.env.NODE_ENV === "production",
-                domain: "lighthearted-stroopwafel-baa966.netlify.app",
-                path: "/login",
+                domain: "https://assurance-project-bloc2-backend.onrender.com",
+                path: ["/login", "/compteuser", "/getdeclaration", "/logout"],
               })
               .status(200)
               .send({
