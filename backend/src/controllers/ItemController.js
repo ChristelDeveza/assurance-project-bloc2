@@ -55,7 +55,8 @@ class ItemController {
             res
               .cookie("access_token", token, {
                 httpOnly: true,
-                secure: process.env.NODE_ENV === "production",
+                secure: true,
+                // process.env.NODE_ENV === "production",
                 domain: "https://assurance-project-bloc2-backend.onrender.com",
                 path: ["/login", "/compteuser", "/getdeclaration", "/logout"],
               })
