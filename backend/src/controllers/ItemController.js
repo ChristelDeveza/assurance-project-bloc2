@@ -56,6 +56,7 @@ class ItemController {
               .cookie("access_token", token, {
                 httpOnly: true,
                 secure: process.env.NODE_ENV === "production",
+                domain: "lighthearted-stroopwafel-baa966.netlify.app",
               })
               .status(200)
               .send({
