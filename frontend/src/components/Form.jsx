@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
 import UploadImage from "./UploadImage";
 import Logout from "./Logout";
+import { UserContext } from "../context/UserContext";
 
 function Form() {
+  const { isOnline } = useContext(UserContext);
+  const { id } = isOnline;
   const [formData, setFormData] = useState({
     date: "",
     description: "",
@@ -35,9 +38,7 @@ function Form() {
       confirmButtonText: "Oui, Soumettre !",
     }).then(() => {
       axios
-        .post(`${import.meta.env.VITE_BACKEND_URL}/declaration`, itemData, {
-          withCredentials: true,
-        })
+        .post(`${import.meta.env.VITE_BACKEND_URL}/declaration/${id}`, itemData)
         .then((response) => {
           setFormData(response.data);
         })

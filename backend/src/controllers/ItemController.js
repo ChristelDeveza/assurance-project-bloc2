@@ -7,7 +7,8 @@ class ItemController {
     const { date, description } = req.body;
     const photoPath = req.file.path;
     // Permet de récupérer l'ID utilisateur à partir du cookie / un token JWT
-    const { userId } = req;
+    // const { userId } = req;
+    const userId = 1;
 
     const item = {
       date_sinister: date,
@@ -55,16 +56,8 @@ class ItemController {
             res
               .cookie("access_token", token, {
                 httpOnly: true,
-                secure: true,
-                // process.env.NODE_ENV === "production",
-                domain: "assurance-project-bloc2-backend.onrender.com",
-                path: [
-                  "/login",
-                  "/declaration",
-                  "/compteuser",
-                  "/getdeclaration",
-                  "/logout",
-                ],
+                secure: process.env.NODE_ENV === "production",
+                // domain: "assurance-project-bloc2-backend.onrender.com",
               })
               .status(200)
               .send({
@@ -86,9 +79,28 @@ class ItemController {
       });
   };
 
-  // get user details
+  // get user details with authorization
+  // static read = (req, res) => {
+  //   const id = req.userId;
+
+  //   models.user
+  //     .find(id)
+  //     .then(([rows]) => {
+  //       if (rows[0] == null) {
+  //         res.sendStatus(404);
+  //       } else {
+  //         res.send(rows[0]);
+  //       }
+  //     })
+  //     .catch((err) => {
+  //       console.error(err);
+  //       res.sendStatus(500);
+  //     });
+  // };
+
+  // Get user datas without middleware
   static read = (req, res) => {
-    const id = req.userId;
+    const id = req.params;
 
     models.user
       .find(id)
@@ -105,14 +117,32 @@ class ItemController {
       });
   };
 
-  // get declaration details
-  static readDecl = (req, res) => {
-    const id = req.userId;
+  // get declaration details with middleware
+  // static readDecl = (req, res) => {
+  //   const id = req.userId;
 
+  //   models.declaration
+  //     .findDecl(id)
+  //     .then(([rows]) => {
+  //       if (rows.length == null) {
+  //         res.sendStatus(404);
+  //       } else {
+  //         res.send(rows);
+  //       }
+  //     })
+  //     .catch((err) => {
+  //       console.error(err);
+  //       res.sendStatus(500);
+  //     });
+  // };
+
+  // get declaration details without authorization
+  static readDecl = (req, res) => {
+    const userId = req.params.id; // Récupération de l'ID de l'utilisateur
     models.declaration
-      .findDecl(id)
+      .findDecl(userId)
       .then(([rows]) => {
-        if (rows.length == null) {
+        if (rows.length === 0) {
           res.sendStatus(404);
         } else {
           res.send(rows);
@@ -125,19 +155,19 @@ class ItemController {
   };
 
   // // Middleware - vérify token
-  static authorization = (req, res, next) => {
-    const token = req.cookies.access_token;
-    if (!token) {
-      return res.sendStatus(401);
-    }
-    try {
-      const data = jwt.verify(token, process.env.JWT_AUTH_SECRET);
-      req.userId = data.id;
-      return next();
-    } catch {
-      return res.sendStatus(401);
-    }
-  };
+  // static authorization = (req, res, next) => {
+  //   const token = req.cookies.access_token;
+  //   if (!token) {
+  //     return res.sendStatus(401);
+  //   }
+  //   try {
+  //     const data = jwt.verify(token, process.env.JWT_AUTH_SECRET);
+  //     req.userId = data.id;
+  //     return next();
+  //   } catch {
+  //     return res.sendStatus(401);
+  //   }
+  // };
 
   // User logout
   static logout = (req, res) => {

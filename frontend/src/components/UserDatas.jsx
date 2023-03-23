@@ -1,14 +1,18 @@
 /* eslint-disable no-shadow */
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
+
 import Logout from "./Logout";
+import { UserContext } from "../context/UserContext";
 
 function UserDatas() {
+  const { isOnline } = useContext(UserContext);
   const [lastname, setLastname] = useState("");
   const [firstname, setFirstname] = useState("");
   const [email, setEmail] = useState("");
   const [address, setAddress] = useState("");
   const [phone, setPhone] = useState("");
+  const { id } = isOnline;
 
   function updateUser() {
     // console.log("en attente");
@@ -17,9 +21,7 @@ function UserDatas() {
   // Get user details
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/compteuser`, {
-        withCredentials: true,
-      })
+      .get(`${import.meta.env.VITE_BACKEND_URL}/compteuser/${id}`)
       .then((response) => {
         const { lastname, firstname, address, email, phone } = response.data;
         setLastname(lastname);

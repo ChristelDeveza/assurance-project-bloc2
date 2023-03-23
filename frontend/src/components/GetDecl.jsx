@@ -1,16 +1,17 @@
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable no-shadow */
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
+import { UserContext } from "../context/UserContext";
 
 function GetDecl() {
+  const { isOnline } = useContext(UserContext);
+  const { id } = isOnline;
   const [declarationList, setDeclarationList] = useState([]);
 
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/getdeclaration`, {
-        withCredentials: true,
-      })
+      .get(`${import.meta.env.VITE_BACKEND_URL}/getdeclaration/${id}`)
       .then((response) => {
         setDeclarationList(response.data);
       })
