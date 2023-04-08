@@ -14,7 +14,6 @@ app.use(cookieParser());
 app.use(
   cors({
     origin: process.env.FRONTEND_URL ?? "http://localhost:3000",
-    // "https://lighthearted-stroopwafel-baa966.netlify.app",
     optionsSuccessStatus: 200,
     credentials: true,
   })
