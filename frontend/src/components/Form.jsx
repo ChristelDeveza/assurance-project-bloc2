@@ -1,28 +1,24 @@
-import React, { useState } from "react";
+/* eslint-disable react/jsx-props-no-spreading */
+import React from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
-import UploadImage from "./UploadImage";
+import { useForm } from "react-hook-form";
+// import UploadImage from "./UploadImage";
 import Logout from "./Logout";
 
 function Form() {
-  const [formData, setFormData] = useState({
-    date: "",
-    description: "",
-    photo: null,
-  });
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setFormData({ ...formData, [name]: value });
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-
+  const onSubmit = (data) => {
     const itemData = new FormData();
-    itemData.append("date", formData.date);
-    itemData.append("description", formData.description);
-    itemData.append("photo", formData.photo);
+    itemData.append("date", data.date);
+    itemData.append("description", data.description);
+    itemData.append("photo", data.photo[0]); // objet
+
     Swal.fire({
       title: "Êtes-vous sûr de vouloir envoyer la demande ?",
       text: "Cette action est irréversible, vous ne pourrez plus modifier votre demande !",
@@ -38,14 +34,11 @@ function Form() {
         .post(`${import.meta.env.VITE_BACKEND_URL}/declaration`, itemData, {
           withCredentials: true,
         })
-        .then((response) => {
-          setFormData(response.data);
-        })
         .catch((error) => {
           console.error(error);
         });
       Swal.fire(
-        "Votre déclaration a été envoyé avec succès !",
+        "Votre déclaration a été envoyée avec succès !",
         "Pour suivre l'avancement de votre demande, rendez-vous dans votre espace personnel, onglet Mes contrats",
         "success"
       ).then(() => window.location.reload());
@@ -55,7 +48,7 @@ function Form() {
   return (
     <div className="decl-div-form">
       <h1 className="header-decl">Formulaire de déclaration de sinistre</h1>
-      <form className="decl-form" onSubmit={handleSubmit}>
+      <form className="decl-form" onSubmit={handleSubmit(onSubmit)}>
         <div>
           <label className="decl-label" htmlFor="date">
             Date :
@@ -64,10 +57,11 @@ function Form() {
             className="decl-input"
             type="date"
             id="date"
-            name="date"
-            value={formData.date}
-            onChange={handleInputChange}
+            {...register("date", { required: true })}
           />
+          {errors.date && (
+            <span className="error-msg">Ce champ est requis</span>
+          )}
         </div>
         <div className="div-decl">
           <label className="decl-label" htmlFor="description">
@@ -76,13 +70,41 @@ function Form() {
           <textarea
             className="decl-descr"
             id="description"
-            name="description"
-            value={formData.description}
-            onChange={handleInputChange}
+            {...register("description", {
+              required: true,
+              maxLength: 100,
+              pattern: /^[a-zA-ZÀ-ÿ\s\-';,.!?()]+$/u,
+            })}
           />
+          <div className="error-desc">
+            {errors.description && (
+              <span className="error-msg">
+                Ce champ est requis.
+                <br />
+                100 caractères maximum autorisés.
+                <br />
+                Caractères spéciaux non autorisés.
+              </span>
+            )}
+          </div>
         </div>
         <div>
-          <UploadImage formData={formData} setFormData={setFormData} />
+          <h5>Joindre une photo du sinistre</h5>
+          <div>
+            <label className="decl-label" htmlFor="photo">
+              Photo :
+            </label>
+            <input
+              type="file"
+              id="photo"
+              name="photo"
+              {...register("photo", { required: true })}
+            />
+          </div>
+
+          {errors.photo && (
+            <span className="error-msg">Une photo est requise</span>
+          )}
         </div>
         <div>
           <button type="submit">SOUMETTRE MA DECLARATION</button>
