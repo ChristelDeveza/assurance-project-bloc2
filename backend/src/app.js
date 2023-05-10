@@ -15,7 +15,7 @@ app.use(
   cors({
     origin: "https://extraordinary-croissant-c69d9a.netlify.app",
     optionsSuccessStatus: 200,
-    credentials: true,
+    credentials: false,
   })
 );
 
