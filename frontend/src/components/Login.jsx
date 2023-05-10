@@ -16,16 +16,10 @@ function Login() {
     // if user and password exist in database
     if (user && password) {
       axios
-        .post(
-          `https://assurrance-project-bloc2-versionb.onrender.com/login`,
-          {
-            email: user,
-            password,
-          },
-          {
-            withCredentials: true,
-          }
-        )
+        .post(`https://assurrance-project-bloc2-versionb.onrender.com/login`, {
+          email: user,
+          password,
+        })
         .then((res) => {
           setIsOnline(res.data);
           localStorage.setItem("user", JSON.stringify(res.data));
