@@ -232,6 +232,15 @@ label {
   width: 100%;
 }
 
+.error-msg {
+  color : red;
+  font-size: xx-large;
+}
+
+.error-desc {
+  text-align: center;
+}
+
 .decl-descr {
   padding: 1rem;
   border-radius: 8px;
