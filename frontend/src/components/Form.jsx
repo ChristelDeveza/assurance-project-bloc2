@@ -29,19 +29,23 @@ function Form() {
       cancelButtonColor: "#d33",
       cancelButtonText: "Annuler!",
       confirmButtonText: "Oui, Soumettre !",
-    }).then(() => {
-      axios
-        .post(`${import.meta.env.VITE_BACKEND_URL}/declaration`, itemData, {
-          withCredentials: true,
-        })
-        .catch((error) => {
-          console.error(error);
-        });
-      Swal.fire(
-        "Votre déclaration a été envoyée avec succès !",
-        "Pour suivre l'avancement de votre demande, rendez-vous dans votre espace personnel, onglet Mes contrats",
-        "success"
-      ).then(() => window.location.reload());
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios
+          .post(`${import.meta.env.VITE_BACKEND_URL}/declaration`, itemData, {
+            withCredentials: true,
+          })
+          .then(() => {
+            Swal.fire(
+              "Votre déclaration a été envoyée avec succès !",
+              "Pour suivre l'avancement de votre demande, rendez-vous dans votre espace personnel, onglet Mes contrats",
+              "success"
+            ).then(() => window.location.reload());
+          })
+          .catch((error) => {
+            console.error(error);
+          });
+      }
     });
   };
 
