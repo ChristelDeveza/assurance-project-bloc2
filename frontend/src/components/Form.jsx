@@ -42,19 +42,19 @@ function Form() {
             `https://assurrance-project-bloc2-versionb.onrender.com/declaration/${id}`,
             itemData
           )
-          .then((res) => {
-            setIsOnline(res.data);
-            localStorage.setItem("user", JSON.stringify(res.data));
-          })
-          .then(() => {
-            navigate("/moncompte", { replace: true });
-          })
           .then(() => {
             Swal.fire(
               "Votre déclaration a été envoyée avec succès !",
               "Pour suivre l'avancement de votre demande, rendez-vous dans votre espace personnel, onglet Mes contrats",
               "success"
             );
+          })
+          .then(() => {
+            setIsOnline(isOnline);
+            localStorage.setItem("user", JSON.stringify(isOnline));
+          })
+          .then(() => {
+            navigate("/moncompte", { replace: true });
           })
           .catch((error) => {
             console.error(error);
