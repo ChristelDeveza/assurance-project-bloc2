@@ -10,9 +10,7 @@ function Logout() {
   // Function logout
   function logoutButton() {
     axios
-      .get(`https://assurrance-project-bloc2-versionb.onrender.com/logout`, {
-        withCredentials: true,
-      })
+      .get(`https://assurrance-project-bloc2-versionb.onrender.com/logout`)
       .then(() => {
         navigate("/", { replace: true });
         setIsOnline(null);

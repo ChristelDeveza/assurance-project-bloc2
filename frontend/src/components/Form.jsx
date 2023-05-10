@@ -4,12 +4,15 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import { useForm } from "react-hook-form";
 // import UploadImage from "./UploadImage";
+import { useNavigate } from "react-router";
 import Logout from "./Logout";
 import { UserContext } from "../context/UserContext";
 
 function Form() {
-  const { isOnline } = useContext(UserContext);
+  const { isOnline, setIsOnline } = useContext(UserContext);
   const { id } = isOnline;
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
@@ -39,6 +42,13 @@ function Form() {
             `https://assurrance-project-bloc2-versionb.onrender.com/declaration/${id}`,
             itemData
           )
+          .then((res) => {
+            setIsOnline(res.data);
+            localStorage.setItem("user", JSON.stringify(res.data));
+          })
+          .then(() => {
+            navigate("/moncompte", { replace: true });
+          })
           .then(() => {
             Swal.fire(
               "Votre déclaration a été envoyée avec succès !",
