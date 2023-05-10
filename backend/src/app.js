@@ -13,7 +13,7 @@ app.use(cookieParser());
 // use some application-level middlewares
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL ?? "http://localhost:3000",
+    origin: "https://extraordinary-croissant-c69d9a.netlify.app",
     optionsSuccessStatus: 200,
     credentials: true,
   })
