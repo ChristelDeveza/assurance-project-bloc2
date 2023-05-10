@@ -44,11 +44,7 @@ function Form() {
               "Votre déclaration a été envoyée avec succès !",
               "Pour suivre l'avancement de votre demande, rendez-vous dans votre espace personnel, onglet Mes contrats",
               "success"
-            ).then(() => {
-              // Redirection vers la page souhaitée après la fermeture de la boîte de dialogue
-              window.location.href =
-                "https://extraordinary-croissant-c69d9a.netlify.app/moncompte";
-            });
+            ).then(() => window.location.reload());
           })
           .catch((error) => {
             console.error(error);
