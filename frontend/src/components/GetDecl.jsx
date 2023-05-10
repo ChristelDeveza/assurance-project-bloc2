@@ -11,7 +11,9 @@ function GetDecl() {
 
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/getdeclaration/${id}`)
+      .get(
+        `https://assurrance-project-bloc2-versionb.onrender.com/getdeclaration/${id}`
+      )
       .then((response) => {
         setDeclarationList(response.data);
       })

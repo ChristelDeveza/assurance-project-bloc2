@@ -10,7 +10,7 @@ function Logout() {
   // Function logout
   function logoutButton() {
     axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/logout`, {
+      .get(`https://assurrance-project-bloc2-versionb.onrender.com/logout`, {
         withCredentials: true,
       })
       .then(() => {

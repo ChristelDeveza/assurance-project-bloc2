@@ -36,7 +36,7 @@ function Form() {
       if (result.isConfirmed) {
         axios
           .post(
-            `${import.meta.env.VITE_BACKEND_URL}/declaration/${id}`,
+            `https://assurrance-project-bloc2-versionb.onrender.com/declaration/${id}`,
             itemData
           )
           .then(() => {

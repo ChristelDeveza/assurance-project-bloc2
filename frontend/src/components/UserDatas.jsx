@@ -21,7 +21,9 @@ function UserDatas() {
   // Get user details
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/compteuser/${id}`)
+      .get(
+        `https://assurrance-project-bloc2-versionb.onrender.com/compteuser/${id}`
+      )
       .then((response) => {
         const { lastname, firstname, address, email, phone } = response.data;
         setLastname(lastname);
