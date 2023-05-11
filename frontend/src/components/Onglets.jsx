@@ -7,6 +7,7 @@ import GetDecl from "./GetDecl";
 
 function Onglets() {
   const [activeTab, setActiveTab] = useState(0);
+  const [declarationList, setDeclarationList] = useState([]);
 
   const handleTabClick = (tabIndex) => {
     setActiveTab(tabIndex);
@@ -40,13 +41,19 @@ function Onglets() {
         </div>
         <div className={`tab-panel ${activeTab === 1 && "active"}`}>
           <p>
-            <Form />
+            <Form
+              declarationList={declarationList}
+              setDeclarationList={setDeclarationList}
+            />
           </p>
         </div>
         <div className={`tab-panel ${activeTab === 2 && "active"}`}>
           <h3 className="title">Mes contrats d'assurance</h3>
           <p>* Contrat N°123654 du 14/03/2023</p>
-          <GetDecl />
+          <GetDecl
+            declarationList={declarationList}
+            setDeclarationList={setDeclarationList}
+          />
         </div>
       </div>
     </div>

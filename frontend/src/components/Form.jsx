@@ -1,17 +1,17 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { useContext } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { useForm } from "react-hook-form";
 // import UploadImage from "./UploadImage";
-import { useNavigate } from "react-router";
 import Logout from "./Logout";
 import { UserContext } from "../context/UserContext";
 
-function Form() {
-  const { isOnline, setIsOnline } = useContext(UserContext);
+function Form(props) {
+  const { isOnline } = useContext(UserContext);
   const { id } = isOnline;
-  const navigate = useNavigate();
+  const { setDeclarationList } = props;
 
   const {
     register,
@@ -50,11 +50,14 @@ function Form() {
             );
           })
           .then(() => {
-            setIsOnline(isOnline);
-            localStorage.setItem("user", JSON.stringify(isOnline));
-          })
-          .then(() => {
-            navigate("/moncompte", { replace: true });
+            axios
+              .get(
+                `https://assurrance-project-bloc2-versionb.onrender.com/getdeclaration/${id}`
+              )
+              .then((response) => {
+                setDeclarationList(response.data);
+              })
+              .catch((error) => console.error(error));
           })
           .catch((error) => {
             console.error(error);

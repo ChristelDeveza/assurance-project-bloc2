@@ -1,13 +1,14 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable no-shadow */
-import React, { useState, useEffect, useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import axios from "axios";
 import { UserContext } from "../context/UserContext";
 
-function GetDecl() {
+function GetDecl(props) {
   const { isOnline } = useContext(UserContext);
   const { id } = isOnline;
-  const [declarationList, setDeclarationList] = useState([]);
+  const { declarationList, setDeclarationList } = props;
 
   useEffect(() => {
     axios
